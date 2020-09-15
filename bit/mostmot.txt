@@ -1,0 +1,695 @@
+sudo mesaflash --device 7i90 --spi --addr /dev/spidev0.0 --readhmid
+
+
+sudo mesaflash --device 7i90 --spi --addr /dev/spidev0.0 --readhmid
+
+
+ # connect pin 10 to X home and min limit
+ net X-home parport.0.pin-10-in-not => axis.0.home-sw-in axis.0.neg-lim-sw-in
+ # connect pin 11 to Y home and min limit
+ net Y-home parport.0.pin-11-in-not => axis.1.home-sw-in axis.1.neg-lim-sw-in
+ # connect pin 12 to Z home and min limit
+ net Z-home parport.0.pin-12-in-not => axis.2.home-sw-in axis.2.neg-lim-sw-in
+ # connect pin 13 to all three max limits
+ net XYZ-max-lim parport.0.pin-13-in-not => axis.0.pos-lim-sw-in 
+ axis.1.pos-lim-sw-in axis.2.pos-lim-sw-in
+
+
+
+IO Connections for P1
+Pin#  I/O   Pri. func    Sec. func       Chan      Pin func        Pin Dir
+
+ 1      0   IOPort       None
+ 3      1   IOPort       QCount           1        Quad-B          (In)
+ 5      2   IOPort       None
+ 7      3   IOPort       QCount           1        Quad-A          (In)
+ 9      4   IOPort       None
+11      5   IOPort       QCount           0        Quad-A          (In)
+13      6   IOPort       None
+15      7   IOPort       QCount           0        Quad-B          (In)
+17      8   IOPort       None
+19      9   IOPort       StepGen          0        Step/Table1     (Out)
+21     10   IOPort       None
+23     11   IOPort       StepGen          0        Dir/Table2      (Out)
+25     12   IOPort       None
+27     13   IOPort       StepGen          1        Step/Table1     (Out)
+29     14   IOPort       None
+31     15   IOPort       StepGen          1        Dir/Table2      (Out)
+33     16   IOPort       None
+35     17   IOPort       QCount           2        Quad-B          (In)
+37     18   IOPort       None
+39     19   IOPort       QCount           2        Quad-A          (In)
+41     20   IOPort       None
+43     21   IOPort       QCount           3        Quad-A          (In)
+45     22   IOPort       None
+47     23   IOPort       QCount           3        Quad-B          (In)
+
+IO Connections for P2
+Pin#  I/O   Pri. func    Sec. func       Chan      Pin func        Pin Dir
+
+ 1     24   IOPort       None
+ 3     25   IOPort       StepGen          3        Step/Table1     (Out)
+ 5     26   IOPort       None
+ 7     27   IOPort       StepGen          3        Dir/Table2      (Out)
+ 9     28   IOPort       None
+11     29   IOPort       StepGen          2        Step/Table1     (Out)
+13     30   IOPort       None
+15     31   IOPort       StepGen          2        Dir/Table2      (Out)
+17     32   IOPort       None
+19     33   IOPort       BufSPI           0        DOut            (Out)
+21     34   IOPort       BufSPI           0        CS0             (Out)
+23     35   IOPort       BufSPI           0        DIn             (In)
+25     36   IOPort       BufSPI           0        CS1             (Out)
+27     37   IOPort       BufSPI           0        SClk            (Out)
+29     38   IOPort       None
+31     39   IOPort       None
+33     40   IOPort       None
+35     41   IOPort       None
+37     42   IOPort       None
+39     43   IOPort       None
+41     44   IOPort       None
+43     45   IOPort       None
+45     46   IOPort       None
+47     47   IOPort       None
+
+IO Connections for P3
+Pin#  I/O   Pri. func    Sec. func       Chan      Pin func        Pin Dir
+
+ 1     48   IOPort       None
+ 3     49   IOPort       None
+ 5     50   IOPort       None
+ 7     51   IOPort       None
+ 9     52   IOPort       None
+11     53   IOPort       None
+13     54   IOPort       None
+15     55   IOPort       None
+17     56   IOPort       None
+19     57   IOPort       None
+21     58   IOPort       None
+23     59   IOPort       None
+25     60   IOPort       None
+27     61   IOPort       None
+29     62   IOPort       None
+31     63   IOPort       None
+33     64   IOPort       PWM              0        PWM             (Out)
+35     65   IOPort       PWM              1        PWM             (Out)
+37     66   IOPort       PWM              2        PWM             (Out)
+39     67   IOPort       PWM              3        PWM             (Out)
+41     68   IOPort       PWM              4        PWM             (Out)
+43     69   IOPort       PWM              5        PWM             (Out)
+45     70   IOPort       PWM              6        PWM             (Out)
+47     71   IOPort       PWM              7        PWM             (Out)
+
+
+hm2: loading Mesa HostMot2 driver version 0.15
+halcmd: loadrt hm2_rpspi
+hm2/hm2_7i90.0: 72 I/O Pins used:
+hm2/hm2_7i90.0:     IO Pin 000 (P1-01): IOPort
+hm2/hm2_7i90.0:     IO Pin 001 (P1-03): Encoder #1, pin B (Input)
+hm2/hm2_7i90.0:     IO Pin 002 (P1-05): IOPort
+hm2/hm2_7i90.0:     IO Pin 003 (P1-07): Encoder #1, pin A (Input)
+hm2/hm2_7i90.0:     IO Pin 004 (P1-09): IOPort
+hm2/hm2_7i90.0:     IO Pin 005 (P1-11): Encoder #0, pin A (Input)
+hm2/hm2_7i90.0:     IO Pin 006 (P1-13): IOPort
+hm2/hm2_7i90.0:     IO Pin 007 (P1-15): Encoder #0, pin B (Input)
+hm2/hm2_7i90.0:     IO Pin 008 (P1-17): IOPort
+hm2/hm2_7i90.0:     IO Pin 009 (P1-19): StepGen #0, pin Step (Output) X
+hm2/hm2_7i90.0:     IO Pin 010 (P1-21): IOPort
+hm2/hm2_7i90.0:     IO Pin 011 (P1-23): StepGen #0, pin Direction (Output) X
+hm2/hm2_7i90.0:     IO Pin 012 (P1-25): IOPort
+hm2/hm2_7i90.0:     IO Pin 013 (P1-27): StepGen #1, pin Step (Output) Y
+hm2/hm2_7i90.0:     IO Pin 014 (P1-29): IOPort
+hm2/hm2_7i90.0:     IO Pin 015 (P1-31): StepGen #1, pin Direction (Output) Y
+hm2/hm2_7i90.0:     IO Pin 016 (P1-33): IOPort
+hm2/hm2_7i90.0:     IO Pin 017 (P1-35): Encoder #2, pin B (Input)
+hm2/hm2_7i90.0:     IO Pin 018 (P1-37): IOPort
+hm2/hm2_7i90.0:     IO Pin 019 (P1-39): Encoder #2, pin A (Input)
+hm2/hm2_7i90.0:     IO Pin 020 (P1-41): IOPort
+hm2/hm2_7i90.0:     IO Pin 021 (P1-43): Encoder #3, pin A (Input)
+hm2/hm2_7i90.0:     IO Pin 022 (P1-45): IOPort
+hm2/hm2_7i90.0:     IO Pin 023 (P1-47): Encoder #3, pin B (Input)
+hm2/hm2_7i90.0:     IO Pin 024 (P2-01): IOPort
+hm2/hm2_7i90.0:     IO Pin 025 (P2-03): StepGen #3, pin Step (Output) A
+hm2/hm2_7i90.0:     IO Pin 026 (P2-05): IOPort
+hm2/hm2_7i90.0:     IO Pin 027 (P2-07): StepGen #3, pin Direction (Output) A
+hm2/hm2_7i90.0:     IO Pin 028 (P2-09): IOPort
+hm2/hm2_7i90.0:     IO Pin 029 (P2-11): StepGen #2, pin Step (Output) Z
+hm2/hm2_7i90.0:     IO Pin 030 (P2-13): IOPort
+hm2/hm2_7i90.0:     IO Pin 031 (P2-15): StepGen #2, pin Direction (Output) Z
+hm2/hm2_7i90.0:     IO Pin 032 (P2-17): IOPort
+hm2/hm2_7i90.0:     IO Pin 033 (P2-19): IOPort
+hm2/hm2_7i90.0:     IO Pin 034 (P2-21): IOPort
+hm2/hm2_7i90.0:     IO Pin 035 (P2-23): IOPort
+hm2/hm2_7i90.0:     IO Pin 036 (P2-25): IOPort
+hm2/hm2_7i90.0:     IO Pin 037 (P2-27): IOPort
+hm2/hm2_7i90.0:     IO Pin 038 (P2-29): IOPort
+hm2/hm2_7i90.0:     IO Pin 039 (P2-31): IOPort
+hm2/hm2_7i90.0:     IO Pin 040 (P2-33): IOPort
+hm2/hm2_7i90.0:     IO Pin 041 (P2-35): IOPort
+hm2/hm2_7i90.0:     IO Pin 042 (P2-37): IOPort
+hm2/hm2_7i90.0:     IO Pin 043 (P2-39): IOPort
+hm2/hm2_7i90.0:     IO Pin 044 (P2-41): IOPort
+hm2/hm2_7i90.0:     IO Pin 045 (P2-43): IOPort
+hm2/hm2_7i90.0:     IO Pin 046 (P2-45): IOPort
+hm2/hm2_7i90.0:     IO Pin 047 (P2-47): IOPort
+hm2/hm2_7i90.0:     IO Pin 048 (P3-01): IOPort
+hm2/hm2_7i90.0:     IO Pin 049 (P3-03): IOPort
+hm2/hm2_7i90.0:     IO Pin 050 (P3-05): IOPort
+hm2/hm2_7i90.0:     IO Pin 051 (P3-07): IOPort
+hm2/hm2_7i90.0:     IO Pin 052 (P3-09): IOPort
+hm2/hm2_7i90.0:     IO Pin 053 (P3-11): IOPort
+hm2/hm2_7i90.0:     IO Pin 054 (P3-13): IOPort
+hm2/hm2_7i90.0:     IO Pin 055 (P3-15): IOPort
+hm2/hm2_7i90.0:     IO Pin 056 (P3-17): IOPort
+hm2/hm2_7i90.0:     IO Pin 057 (P3-19): IOPort
+hm2/hm2_7i90.0:     IO Pin 058 (P3-21): IOPort
+hm2/hm2_7i90.0:     IO Pin 059 (P3-23): IOPort
+hm2/hm2_7i90.0:     IO Pin 060 (P3-25): IOPort
+hm2/hm2_7i90.0:     IO Pin 061 (P3-27): IOPort
+hm2/hm2_7i90.0:     IO Pin 062 (P3-29): IOPort
+hm2/hm2_7i90.0:     IO Pin 063 (P3-31): IOPort
+hm2/hm2_7i90.0:     IO Pin 064 (P3-33): PWMGen #0, pin Out0 (PWM or Up) (Output)
+hm2/hm2_7i90.0:     IO Pin 065 (P3-35): PWMGen #1, pin Out0 (PWM or Up) (Output)
+hm2/hm2_7i90.0:     IO Pin 066 (P3-37): PWMGen #2, pin Out0 (PWM or Up) (Output)
+hm2/hm2_7i90.0:     IO Pin 067 (P3-39): PWMGen #3, pin Out0 (PWM or Up) (Output)
+hm2/hm2_7i90.0:     IO Pin 068 (P3-41): PWMGen #4, pin Out0 (PWM or Up) (Output)
+hm2/hm2_7i90.0:     IO Pin 069 (P3-43): PWMGen #5, pin Out0 (PWM or Up) (Output)
+hm2/hm2_7i90.0:     IO Pin 070 (P3-45): PWMGen #6, pin Out0 (PWM or Up) (Output)
+hm2/hm2_7i90.0:     IO Pin 071 (P3-47): PWMGen #7, pin Out0 (PWM or Up) (Output)
+
+halcmd: show pin
+Component Pins:
+Owner   Type  Dir         Value  Name
+     7  s32   OUT             0  hm2_7i90.0.encoder.00.count
+     7  s32   OUT             0  hm2_7i90.0.encoder.00.count-latched
+     7  bit   I/O         FALSE  hm2_7i90.0.encoder.00.index-enable
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.00.input-a
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.00.input-b
+     7  bit   OUT          TRUE  hm2_7i90.0.encoder.00.input-index
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.00.latch-enable
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.00.latch-polarity
+     7  float OUT             0  hm2_7i90.0.encoder.00.position
+     7  float OUT             0  hm2_7i90.0.encoder.00.position-latched
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.00.quad-error
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.00.quad-error-enable
+     7  s32   OUT             0  hm2_7i90.0.encoder.00.rawcounts
+     7  s32   OUT             0  hm2_7i90.0.encoder.00.rawlatch
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.00.reset
+     7  float OUT             0  hm2_7i90.0.encoder.00.velocity
+     7  float OUT             0  hm2_7i90.0.encoder.00.velocity-rpm
+     7  s32   OUT             0  hm2_7i90.0.encoder.01.count
+     7  s32   OUT             0  hm2_7i90.0.encoder.01.count-latched
+     7  bit   I/O         FALSE  hm2_7i90.0.encoder.01.index-enable
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.01.input-a
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.01.input-b
+     7  bit   OUT          TRUE  hm2_7i90.0.encoder.01.input-index
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.01.latch-enable
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.01.latch-polarity
+     7  float OUT             0  hm2_7i90.0.encoder.01.position
+     7  float OUT             0  hm2_7i90.0.encoder.01.position-latched
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.01.quad-error
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.01.quad-error-enable
+     7  s32   OUT             0  hm2_7i90.0.encoder.01.rawcounts
+     7  s32   OUT             0  hm2_7i90.0.encoder.01.rawlatch
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.01.reset
+     7  float OUT             0  hm2_7i90.0.encoder.01.velocity
+     7  float OUT             0  hm2_7i90.0.encoder.01.velocity-rpm
+     7  s32   OUT             0  hm2_7i90.0.encoder.02.count
+     7  s32   OUT             0  hm2_7i90.0.encoder.02.count-latched
+     7  bit   I/O         FALSE  hm2_7i90.0.encoder.02.index-enable
+     7  bit   OUT          TRUE  hm2_7i90.0.encoder.02.input-a
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.02.input-b
+     7  bit   OUT          TRUE  hm2_7i90.0.encoder.02.input-index
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.02.latch-enable
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.02.latch-polarity
+     7  float OUT             0  hm2_7i90.0.encoder.02.position
+     7  float OUT             0  hm2_7i90.0.encoder.02.position-latched
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.02.quad-error
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.02.quad-error-enable
+     7  s32   OUT             1  hm2_7i90.0.encoder.02.rawcounts
+     7  s32   OUT             1  hm2_7i90.0.encoder.02.rawlatch
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.02.reset
+     7  float OUT             0  hm2_7i90.0.encoder.02.velocity
+     7  float OUT             0  hm2_7i90.0.encoder.02.velocity-rpm
+     7  s32   OUT             0  hm2_7i90.0.encoder.03.count
+     7  s32   OUT             0  hm2_7i90.0.encoder.03.count-latched
+     7  bit   I/O         FALSE  hm2_7i90.0.encoder.03.index-enable
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.03.input-a
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.03.input-b
+     7  bit   OUT          TRUE  hm2_7i90.0.encoder.03.input-index
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.03.latch-enable
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.03.latch-polarity
+     7  float OUT             0  hm2_7i90.0.encoder.03.position
+     7  float OUT             0  hm2_7i90.0.encoder.03.position-latched
+     7  bit   OUT         FALSE  hm2_7i90.0.encoder.03.quad-error
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.03.quad-error-enable
+     7  s32   OUT             0  hm2_7i90.0.encoder.03.rawcounts
+     7  s32   OUT             0  hm2_7i90.0.encoder.03.rawlatch
+     7  bit   IN          FALSE  hm2_7i90.0.encoder.03.reset
+     7  float OUT             0  hm2_7i90.0.encoder.03.velocity
+     7  float OUT             0  hm2_7i90.0.encoder.03.velocity-rpm
+     7  u32   IN     0x017D7840  hm2_7i90.0.encoder.sample-frequency
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.000.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.000.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.000.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.001.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.001.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.002.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.002.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.002.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.003.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.003.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.004.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.004.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.004.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.005.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.005.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.006.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.006.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.006.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.007.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.007.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.008.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.008.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.008.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.009.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.009.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.010.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.010.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.010.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.011.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.011.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.012.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.012.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.012.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.013.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.013.in_not
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.014.in
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.014.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.014.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.015.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.015.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.016.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.016.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.016.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.017.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.017.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.018.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.018.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.018.out
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.019.in
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.019.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.020.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.020.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.020.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.021.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.021.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.022.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.022.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.022.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.023.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.023.in_not
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.024.in
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.024.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.024.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.025.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.025.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.026.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.026.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.026.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.027.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.027.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.028.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.028.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.028.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.029.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.029.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.030.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.030.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.030.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.031.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.031.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.032.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.032.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.032.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.033.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.033.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.033.out
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.034.in
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.034.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.034.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.035.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.035.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.035.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.036.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.036.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.036.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.037.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.037.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.037.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.038.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.038.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.038.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.039.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.039.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.039.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.040.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.040.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.040.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.041.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.041.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.041.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.042.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.042.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.042.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.043.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.043.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.043.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.044.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.044.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.044.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.045.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.045.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.045.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.046.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.046.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.046.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.047.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.047.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.047.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.048.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.048.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.048.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.049.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.049.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.049.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.050.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.050.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.050.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.051.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.051.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.051.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.052.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.052.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.052.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.053.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.053.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.053.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.054.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.054.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.054.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.055.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.055.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.055.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.056.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.056.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.056.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.057.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.057.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.057.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.058.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.058.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.058.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.059.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.059.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.059.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.060.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.060.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.060.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.061.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.061.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.061.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.062.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.062.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.062.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.063.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.063.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.gpio.063.out
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.064.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.064.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.065.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.065.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.066.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.066.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.067.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.067.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.068.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.068.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.069.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.069.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.070.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.070.in_not
+     7  bit   OUT         FALSE  hm2_7i90.0.gpio.071.in
+     7  bit   OUT          TRUE  hm2_7i90.0.gpio.071.in_not
+     7  bit   IN          FALSE  hm2_7i90.0.led.CR01
+     7  bit   IN          FALSE  hm2_7i90.0.led.CR02
+     7  bit   IN          FALSE  hm2_7i90.0.pwmgen.00.enable
+     7  float IN              0  hm2_7i90.0.pwmgen.00.value
+     7  bit   IN          FALSE  hm2_7i90.0.pwmgen.01.enable
+     7  float IN              0  hm2_7i90.0.pwmgen.01.value
+     7  bit   IN          FALSE  hm2_7i90.0.pwmgen.02.enable
+     7  float IN              0  hm2_7i90.0.pwmgen.02.value
+     7  bit   IN          FALSE  hm2_7i90.0.pwmgen.03.enable
+     7  float IN              0  hm2_7i90.0.pwmgen.03.value
+     7  bit   IN          FALSE  hm2_7i90.0.pwmgen.04.enable
+     7  float IN              0  hm2_7i90.0.pwmgen.04.value
+     7  bit   IN          FALSE  hm2_7i90.0.pwmgen.05.enable
+     7  float IN              0  hm2_7i90.0.pwmgen.05.value
+     7  bit   IN          FALSE  hm2_7i90.0.pwmgen.06.enable
+     7  float IN              0  hm2_7i90.0.pwmgen.06.value
+     7  bit   IN          FALSE  hm2_7i90.0.pwmgen.07.enable
+     7  float IN              0  hm2_7i90.0.pwmgen.07.value
+     7  s32   OUT             0  hm2_7i90.0.read.time
+     7  bit   IN          FALSE  hm2_7i90.0.stepgen.00.control-type
+     7  s32   OUT             0  hm2_7i90.0.stepgen.00.counts
+     7  float OUT             0  hm2_7i90.0.stepgen.00.dbg_err_at_match
+     7  float OUT             0  hm2_7i90.0.stepgen.00.dbg_ff_vel
+     7  float OUT             0  hm2_7i90.0.stepgen.00.dbg_pos_minus_prev_cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.00.dbg_s_to_match
+     7  s32   OUT             0  hm2_7i90.0.stepgen.00.dbg_step_rate
+     7  float OUT             0  hm2_7i90.0.stepgen.00.dbg_vel_error
+     7  bit   IN          FALSE  hm2_7i90.0.stepgen.00.enable
+     7  float IN              0  hm2_7i90.0.stepgen.00.position-cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.00.position-fb
+     7  float IN              0  hm2_7i90.0.stepgen.00.velocity-cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.00.velocity-fb
+     7  bit   IN          FALSE  hm2_7i90.0.stepgen.01.control-type
+     7  s32   OUT             0  hm2_7i90.0.stepgen.01.counts
+     7  float OUT             0  hm2_7i90.0.stepgen.01.dbg_err_at_match
+     7  float OUT             0  hm2_7i90.0.stepgen.01.dbg_ff_vel
+     7  float OUT             0  hm2_7i90.0.stepgen.01.dbg_pos_minus_prev_cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.01.dbg_s_to_match
+     7  s32   OUT             0  hm2_7i90.0.stepgen.01.dbg_step_rate
+     7  float OUT             0  hm2_7i90.0.stepgen.01.dbg_vel_error
+     7  bit   IN          FALSE  hm2_7i90.0.stepgen.01.enable
+     7  float IN              0  hm2_7i90.0.stepgen.01.position-cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.01.position-fb
+     7  float IN              0  hm2_7i90.0.stepgen.01.velocity-cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.01.velocity-fb
+     7  bit   IN          FALSE  hm2_7i90.0.stepgen.02.control-type
+     7  s32   OUT             0  hm2_7i90.0.stepgen.02.counts
+     7  float OUT             0  hm2_7i90.0.stepgen.02.dbg_err_at_match
+     7  float OUT             0  hm2_7i90.0.stepgen.02.dbg_ff_vel
+     7  float OUT             0  hm2_7i90.0.stepgen.02.dbg_pos_minus_prev_cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.02.dbg_s_to_match
+     7  s32   OUT             0  hm2_7i90.0.stepgen.02.dbg_step_rate
+     7  float OUT             0  hm2_7i90.0.stepgen.02.dbg_vel_error
+     7  bit   IN          FALSE  hm2_7i90.0.stepgen.02.enable
+     7  float IN              0  hm2_7i90.0.stepgen.02.position-cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.02.position-fb
+     7  float IN              0  hm2_7i90.0.stepgen.02.velocity-cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.02.velocity-fb
+     7  bit   IN          FALSE  hm2_7i90.0.stepgen.03.control-type
+     7  s32   OUT             0  hm2_7i90.0.stepgen.03.counts
+     7  float OUT             0  hm2_7i90.0.stepgen.03.dbg_err_at_match
+     7  float OUT             0  hm2_7i90.0.stepgen.03.dbg_ff_vel
+     7  float OUT             0  hm2_7i90.0.stepgen.03.dbg_pos_minus_prev_cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.03.dbg_s_to_match
+     7  s32   OUT             0  hm2_7i90.0.stepgen.03.dbg_step_rate
+     7  float OUT             0  hm2_7i90.0.stepgen.03.dbg_vel_error
+     7  bit   IN          FALSE  hm2_7i90.0.stepgen.03.enable
+     7  float IN              0  hm2_7i90.0.stepgen.03.position-cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.03.position-fb
+     7  float IN              0  hm2_7i90.0.stepgen.03.velocity-cmd
+     7  float OUT             0  hm2_7i90.0.stepgen.03.velocity-fb
+     7  bit   I/O         FALSE  hm2_7i90.0.watchdog.has_bit
+     7  s32   OUT             0  hm2_7i90.0.write.time
+    11  s32   OUT             0  test-thread.time
+
+
+halrun -I
+
+loadrt hostmot2
+loadrt hm2_rpspi
+
+loadrt hm2_rpspi spiclk_rate=60000 spiclk_rate_rd=29000
+
+better
+loadrt hm2_rpspi spiclk_rate=20000 spiclk_rate_rd=29000
+
+
+spiclk_rate=20000
+
+
+# ################
+# X [0] Axis
+# ################
+
+# axis enable chain
+newsig emcmot.00.enable bit
+sets emcmot.00.enable FALSE
+
+net emcmot.00.enable <= joint.0.amp-enable-out 
+net emcmot.00.enable => hm2_[HOSTMOT2](BOARD).0.stepgen.00.enable
+
+
+# position command and feedback
+net emcmot.00.pos-cmd <= joint.0.motor-pos-cmd
+net emcmot.00.pos-cmd => hm2_[HOSTMOT2](BOARD).0.stepgen.00.position-cmd
+
+net motor.00.pos-fb <= hm2_[HOSTMOT2](BOARD).0.stepgen.00.position-fb
+net motor.00.pos-fb => joint.0.motor-pos-fb
+
+
+# timing parameters
+setp hm2_[HOSTMOT2](BOARD).0.stepgen.00.dirsetup        [JOINT_0]DIRSETUP
+setp hm2_[HOSTMOT2](BOARD).0.stepgen.00.dirhold         [JOINT_0]DIRHOLD
+
+setp hm2_[HOSTMOT2](BOARD).0.stepgen.00.steplen         [JOINT_0]STEPLEN
+setp hm2_[HOSTMOT2](BOARD).0.stepgen.00.stepspace       [JOINT_0]STEPSPACE
+
+setp hm2_[HOSTMOT2](BOARD).0.stepgen.00.position-scale  [JOINT_0]SCALE
+
+setp hm2_[HOSTMOT2](BOARD).0.stepgen.00.maxvel          [JOINT_0]STEPGEN_MAX_VEL
+setp hm2_[HOSTMOT2](BOARD).0.stepgen.00.maxaccel        [JOINT_0]STEPGEN_MAX_ACC
+
+setp hm2_[HOSTMOT2](BOARD).0.stepgen.00.step_type       0
+
+
+
+#*******************
+#  AXIS X
+#*******************
+
+setp   pid.x.Pgain     [JOINT_0]P
+setp   pid.x.Igain     [JOINT_0]I
+setp   pid.x.Dgain     [JOINT_0]D
+setp   pid.x.bias      [JOINT_0]BIAS
+setp   pid.x.FF0       [JOINT_0]FF0
+setp   pid.x.FF1       [JOINT_0]FF1
+setp   pid.x.FF2       [JOINT_0]FF2
+setp   pid.x.deadband  [JOINT_0]DEADBAND
+setp   pid.x.maxoutput [JOINT_0]MAX_OUTPUT
+setp   pid.x.error-previous-target true
+setp   pid.x.maxerror .0005
+
+net x-index-enable  <=> pid.x.index-enable
+net x-enable        =>  pid.x.enable
+net x-output        =>  pid.x.output
+net x-pos-cmd       =>  pid.x.command
+net x-vel-cmd       =>  pid.x.command-deriv
+net x-pos-fb        =>  pid.x.feedback
+
+# Step Gen signals/setup
+
+setp   [HOSTMOT2](BOARD).0.stepgen.00.dirsetup        [JOINT_0]DIRSETUP
+setp   [HOSTMOT2](BOARD).0.stepgen.00.dirhold         [JOINT_0]DIRHOLD
+setp   [HOSTMOT2](BOARD).0.stepgen.00.steplen         [JOINT_0]STEPLEN
+setp   [HOSTMOT2](BOARD).0.stepgen.00.stepspace       [JOINT_0]STEPSPACE
+setp   [HOSTMOT2](BOARD).0.stepgen.00.position-scale  [JOINT_0]STEP_SCALE
+setp   [HOSTMOT2](BOARD).0.stepgen.00.step_type        0
+setp   [HOSTMOT2](BOARD).0.stepgen.00.control-type     1
+setp   [HOSTMOT2](BOARD).0.stepgen.00.maxaccel         [JOINT_0]STEPGEN_MAXACCEL
+setp   [HOSTMOT2](BOARD).0.stepgen.00.maxvel           [JOINT_0]STEPGEN_MAXVEL
+
+# ---closedloop stepper signals---
+
+net x-pos-cmd    <= joint.0.motor-pos-cmd
+net x-vel-cmd    <= joint.0.vel-cmd
+net x-output     <= [HOSTMOT2](BOARD).0.stepgen.00.velocity-cmd
+net x-pos-fb     <= [HOSTMOT2](BOARD).0.stepgen.00.position-fb
+net x-pos-fb     => joint.0.motor-pos-fb
+net x-enable     <= joint.0.amp-enable-out
+net x-enable     => [HOSTMOT2](BOARD).0.stepgen.00.enable
+
+# ---setup home / limit switch signals---
+
+net home-x     =>  joint.0.home-sw-in
+net x-neg-limit     =>  joint.0.neg-lim-sw-in
+net x-pos-limit     =>  joint.0.pos-lim-sw-in
+
+# Form VHD
+
+
+NET	"IOBITS<0>"	LOC ="P57"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<1>"	LOC ="P58"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<2>"	LOC ="P66"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<3>"	LOC ="P67"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<4>"	LOC ="P74"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<5>"	LOC ="P75"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<6>"	LOC ="P78"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<7>"	LOC ="P79"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<8>"	LOC ="P80"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<9>"	LOC ="P81"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ; X
+NET	"IOBITS<10>"	LOC ="P82"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<11>"	LOC ="P83"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ; X
+NET	"IOBITS<12>"	LOC ="P84"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<13>"	LOC ="P85"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLUP; Y
+NET	"IOBITS<14>"	LOC ="P87"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLUP;
+NET	"IOBITS<15>"	LOC ="P88"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ; Y
+NET	"IOBITS<16>"	LOC ="P92"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLDOWN;
+NET	"IOBITS<17>"	LOC ="P93"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLDOWN;
+NET	"IOBITS<18>"	LOC ="P94"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<19>"	LOC ="P95"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLUP;
+NET	"IOBITS<20>"	LOC ="P97"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<21>"	LOC ="P98"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLDOWN;
+NET	"IOBITS<22>"	LOC ="P99"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLDOWN;
+NET	"IOBITS<23>"	LOC ="P100"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<24>"	LOC ="P101"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLUP;
+NET	"IOBITS<25>"	LOC ="P102"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;  A
+NET	"IOBITS<26>"	LOC ="P104"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLDOWN; 
+NET	"IOBITS<27>"	LOC ="P105"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLDOWN; A
+NET	"IOBITS<28>"	LOC ="P111"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<29>"	LOC ="P112"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLUP; Z
+NET	"IOBITS<30>"	LOC ="P114"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<31>"	LOC ="P115"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLDOWN; Z
+NET	"IOBITS<32>"	LOC ="P116"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLDOWN;
+NET	"IOBITS<33>"	LOC ="P117"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<34>"	LOC ="P118"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLUP;
+NET	"IOBITS<35>"	LOC ="P119"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<36>"	LOC ="P120"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLDOWN;
+NET	"IOBITS<37>"	LOC ="P121"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW | PULLDOWN;
+NET	"IOBITS<38>"	LOC ="P50"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<39>"	LOC ="P51"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<40>"	LOC ="P40"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<41>"	LOC ="P41"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<42>"	LOC ="P34"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<43>"	LOC ="P35"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<44>"	LOC ="P32"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<45>"	LOC ="P33"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<46>"	LOC ="P29"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<47>"	LOC ="P30"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<48>"	LOC ="P26"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<49>"	LOC ="P27"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<50>"	LOC ="P23"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<51>"	LOC ="P21"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<52>"	LOC ="P16"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<53>"	LOC ="P14"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<54>"	LOC ="P11"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<55>"	LOC ="P12"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<56>"	LOC ="P9"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<57>"	LOC ="P10"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<58>"	LOC ="P7"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<59>"	LOC ="P8"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<60>"	LOC ="P5"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<61>"	LOC ="P6"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<62>"	LOC ="P1"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<63>"	LOC ="P2"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<64>"	LOC ="P143"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<65>"	LOC ="P144"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET	"IOBITS<66>"	LOC ="P141"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET "IOBITS<67>"	LOC ="P142"	 | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET "IOBITS<68>"  LOC ="P139"  | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET "IOBITS<69>"  LOC ="P140"  | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET "IOBITS<70>"  LOC ="P137"  | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
+NET "IOBITS<71>"  LOC ="P138"  | IOSTANDARD = LVTTL | DRIVE = 24 | SLEW = SLOW ;
